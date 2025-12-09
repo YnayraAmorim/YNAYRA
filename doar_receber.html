@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doe Fácil</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            background-color: #f4f7f6;
+            color: #333;
+        }
+        .container {
+            max-width: 550px;
+            margin: 40px auto;
+            padding: 30px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .logo {
+            display: block;
+            margin: 0 auto 20px auto;
+            max-width: 180px;
+        }
+        h2, h3 {
+            text-align: center;
+            color: #4C9AEF;
+        }
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+            color: #555;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="password"],
+        input[type="number"],
+        textarea,
+        /* */
+        .select-full-width {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+            margin-top: 5px;
+            font-family: Arial, sans-serif; /* Garante a consistência da fonte */
+            font-size: 1em; /* Garante a consistência do tamanho */
+            background-color: #fff; /* Fundo branco */
+        }
+        button[type="submit"] {
+            background-color: #4C9AEF;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+            width: 100%;
+        }
+        button[type="submit"]:hover {
+            background-color: #3a8ae1;
+        }
+        hr {
+            border: 0;
+            height: 1px;
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0));
+            margin: 30px 0;
+        }
+        
+        /* Estilos para a área do PIX */
+        .pix-area {
+            text-align: center;
+            border: 1px dashed #4C9AEF;
+            background-color: #f5faff;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+        .pix-area p {
+            margin-top: 0;
+            color: #666;
+            font-size: 0.95em;
+        }
+        .pix-qrcode {
+            max-width: 180px;
+            margin: 10px auto;
+            border: 1px solid #ddd;
+            padding: 5px;
+            background: white;
+        }
+        .pix-copia-cola {
+            display: flex;
+            margin-top: 15px;
+        }
+        .pix-copia-cola input {
+            flex-grow: 1;
+            background-color: #eaf2fb;
+            border-right: none;
+            border-radius: 5px 0 0 5px;
+            font-size: 0.8em;
+            color: #555;
+        }
+        .pix-copia-cola button {
+            width: auto;
+            margin-top: 5px;
+            border-radius: 0 5px 5px 0;
+            font-size: 14px;
+            padding: 10px 15px;
+            background-color: #555;
+            color: white;
+            cursor: pointer;
+        }
+        .pix-copia-cola button:hover {
+            background-color: #333;
+        }
+
+        /* ESTILOS PARA A BARRA DE PROGRESSO */
+        .meta-container {
+            width: 100%;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .progress-bar-container {
+            width: 100%;
+            height: 25px;
+            background-color: #e0e0e0;
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid #ccc;
+        }
+        .progress-bar-fill {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, #4C9AEF, #7bb7ff);
+            border-radius: 15px;
+            text-align: center;
+            line-height: 25px;
+            color: white;
+            font-weight: bold;
+            transition: width 0.8s ease-in-out;
+        }
+        .valores-info {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 8px;
+            font-size: 0.9em;
+            font-weight: bold;
+        }
+        .valor-arrecadado {
+            color: #4C9AEF;
+        }
+        .valor-meta {
+            color: #555;
+        }
+
+        /* NOVOS ESTILOS PARA A SELEÇÃO DE USUÁRIO */
+        #selecao-tipo-usuario {
+            text-align: center;
+            padding: 20px 0;
+        }
+        .btn-escolha {
+            background-color: #fff;
+            border: 2px solid #4C9AEF;
+            color: #4C9AEF;
+            padding: 20px;
+            margin: 10px;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 40%;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+        .btn-escolha:hover {
+            background-color: #4C9AEF;
+            color: #fff;
+        }
+        .btn-escolha i {
+            font-size: 2em;
+            display: block;
+            margin-bottom: 10px;
+        }
+        
+        /* */
+        .form-row-flex {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px; /* Adiciona espaço entre os campos */
+        }
+        .form-group-flex {
+            flex: 1; /* Faz com que os grupos ocupem espaço igual */
+            min-width: 0; /* Corrige problema de overflow do flex */
+        }
+        
+        /* Garante que o label dentro do flex-group se comporte bem */
+        .form-group-flex label {
+            margin-top: 0; /* Remove a margem superior padrão do label */
+        }
+        /* Garante que o input dentro do flex-group tenha a margem superior correta */
+        .form-group-flex input {
+            margin-top: 5px;
+        }
+        /* */
+
+    </style>
+</head>
+<body>
+
+    <section id="header">
+        <a href="#"> <img src="src/logodoefacil.png" class="logo" style="width: 200px;"></a>
+        <div>
+            <ul id="navbar">
+                <li><a  href="pagprincipal.html">Início</a></li> 
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="cadastro.html">Cadastro</a></li>
+                <li><a href="doar_receber.html">Apoiar/Receber</a></li>           
+                <li><a href="transparência.html">Transparência</a></li>
+                <li><a href="contato.html">contato</a></li>
+                <li><a href="login.html">login</a></li>
+            </ul>
+        </div>
+       <!-- <div id="mobile">
+            <a href="cart.html"><i class="far fa-shopping-bag"></i></a>
+            <i id="bar" class="fas fa-outdent"></i>
+        </div>-->
+    </section>
+
+  <div class="container">
+        
+        <div id="selecao-tipo-usuario">
+            <h2>Como você quer participar?</h2>
+            <div class="btn-escolha" id="btn-doador">
+                <i class="fas fa-hand-holding-heart"></i>
+                <span>Quero Doar</span>
+            </div>
+            <div class="btn-escolha" id="btn-recebedor">
+                <i class="fas fa-hands-helping"></i>
+                <span>Preciso de Ajuda</span>
+            </div>
+        </div>
+
+        <div id="form-doador-container" style="display: none;">
+            <div class="meta-container">
+                
+                <div class="progress-bar-container">
+                    <div class="progress-bar-fill" id="progressBarFill"></div>
+                </div>
+                <div class="valores-info">
+                    <span class="valor-arrecadado" id="valorArrecadado"></span>
+                    <span class="valor-meta" id="valorMeta"></span>
+                </div>
+            </div>
+            <hr>
+          <h2>Área de Doação</h2>
+            <h3></h3>
+                <div class="pix-area">
+                    <p>Se desejar, apoie nossa causa com um PIX!</p>
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=SUA-CHAVE-PIX-AQUI" alt="QR Code PIX" class="pix-qrcode">
+                    <label for="pix-codigo">Ou use o PIX Copia e Cola:</label>
+                     <div class="pix-copia-cola">
+                        <input type="text" id="pix-codigo" value="00020126580014br.gov.bcb.pix0136123e4567-e89b-12d3-a456-4266141740005204000053039865802BR5913NOME COMPLETO6009SAO PAULO62070503***6304E2A8" readonly>
+                        <button type="button" onclick="copiarPix()">Copiar</button>
+                    </div>
+                </div>
+
+                
+                <hr> <h3>Ou doe com Cartão de Crédito</h3>
+                
+                <label for="valor">Valor a ser doado (R$):</label>
+                <input type="number" id="valor" name="valor" min="0.01" step="0.01" placeholder="Ex: 50,00" >
+
+            <div class="bandeiras-cartao" style="margin: 15px 0; text-align: center; padding: 10px; border: 1px dashed #ccc; border-radius: 5px;">
+                    
+                </div>
+
+                <label for="nome-cartao">Nome no Cartão:</label>
+                <input type="text" id="nome-cartao" name="nome-cartao" placeholder="Como está escrito no cartão">
+
+                <label for="numero-cartao">Número do Cartão:</label>
+                <input type="text" id="numero-cartao" name="numero-cartao" placeholder="0000 0000 0000 0000" maxlength="19">
+
+                <div class="form-row-flex">
+                    <div class="form-group-flex">
+                        <label for="validade-cartao">Validade (MM/AA):</label>
+                        <input type="text" id="validade-cartao" name="validade-cartao" placeholder="MM/AA" maxlength="5">
+                    </div>
+                    <div class="form-group-flex">
+                        <label for="cvv-cartao">CVV:</label>
+                        <input type="text" id="cvv-cartao" name="cvv-cartao" placeholder="123" maxlength="4">
+                    </div>
+                </div>
+
+                <label for="parcelas-cartao">Parcelas:</label>
+                <select id="parcelas-cartao" name="parcelas-cartao" class="select-full-width">
+                    <option value="1">1x (à vista)</option>
+                    <option value="2">2x</option>
+                    <option value="3">3x</option>
+                    <option value="4">4x</option>
+                    <option value="5">5x</option>
+                    <option value="6">6x</option>
+                    </select>
+                
+
+                <label for="msg-doador">Se desejar Deixe aqui sua mensagem:</label>
+                <textarea id="msg-doador" name="msg" rows="4"></textarea>
+                <button type="submit"> Doar</button>
+            </form>
+        </div>
+
+        <div id="form-recebedor-container" style="display: none;">
+            <h2>Cadastro de Receptor</h2>
+           <hr>
+              <label for="historia">Conte-nos um pouco da sua história e por que precisa de ajuda:</label>
+<textarea id="historia" name="historia" rows="6" required placeholder="Descreva sua situação, suas necessidades e como a ajuda pode fazer a diferença."></textarea>
+
+<p class="aviso">
+    <strong>Atenção:</strong> Cada pedido é analisado com muito cuidado e empatia, contamos inicialmente com  o que temos disponível no momento.  
+   Nossa equipe busca sempre ajudar da melhor forma possível, dentro das possibilidades.  
+   Caso algo não esteja disponível, entraremos em contato para encontrarmos juntos uma alternativa.
+</p>
+
+<button type="submit">Finalizar Pedido</button>
+            </form>
+        </div>
+    </div>
+<script>
+    // --- CONFIGURAÇÕES DA META ---
+    //// --- ELEMENTOS DO DOM ---
+    const selecaoContainer = document.getElementById('selecao-tipo-usuario');
+    const doadorContainer = document.getElementById('form-doador-container');
+    const recebedorContainer = document.getElementById('form-recebedor-container');
+    
+    const btnDoador = document.getElementById('btn-doador');
+    const btnRecebedor = document.getElementById('btn-recebedor');
+    
+    const cadastroFormDoador = document.getElementById('cadastroFormDoador');
+    const valorInput = document.getElementById('valor');
+    const progressBarFill = document.getElementById('progressBarFill');
+    const valorArrecadadoSpan = document.getElementById('valorArrecadado');
+    const valorMetaSpan = document.getElementById('valorMeta');
+
+    // --- FUNÇÕES ---
+    function copiarPix() {
+        const pixInput = document.getElementById('pix-codigo');
+        pixInput.select();
+        pixInput.setSelectionRange(0, 99999);
+        try {
+            document.execCommand('copy');
+            alert('Código PIX copiado!');
+        } catch (err) {
+            alert('Não foi possível copiar o código.');
+        }
+    }
+
+    function atualizarBarra() {
+        const porcentagem = Math.min((valorAtual / metaDoacao) * 100, 100);
+        progressBarFill.style.width = `${porcentagem}%`;
+        progressBarFill.textContent = `${Math.round(porcentagem)}%`;
+        
+        const formatoMoeda = { style: 'currency', currency: 'BRL' };
+        valorArrecadadoSpan.textContent = valorAtual.toLocaleString('pt-BR', formatoMoeda);
+        valorMetaSpan.textContent = metaDoacao.toLocaleString('pt-BR', formatoMoeda);
+    }
+
+    // --- EVENT LISTENERS ---
+    btnDoador.addEventListener('click', () => {
+        selecaoContainer.style.display = 'none';
+        doadorContainer.style.display = 'block';
+    });
+
+    btnRecebedor.addEventListener('click', () => {
+        selecaoContainer.style.display = 'none';
+        recebedorContainer.style.display = 'block';
+    });
+
+    cadastroFormDoador.addEventListener('submit', function(event) {
+        event.preventDefault(); 
+        const valorDoado = parseFloat(valorInput.value);
+        if (!isNaN(valorDoado) && valorDoado > 0) {
+            valorAtual += valorDoado;
+            atualizarBarra();
+            valorInput.value = '';
+        }
+        alert('Cadastro de doador finalizado com sucesso! Muito obrigado pelo seu apoio.');
+    });
+
+    // --- INICIALIZAÇÃO ---
+    window.onload = atualizarBarra;
+</script>
+ <script src="doar_receber.js"></script>
+</body>
+</html>

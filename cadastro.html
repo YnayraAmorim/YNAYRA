@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doe Fácil - Cadastro</title>
+    <link rel="stylesheet" href="cadastro.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        /* ===== HEADER E NAVBAR ===== */
+        #header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 60px;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        #header .logo {
+            width: 160px;
+        }
+
+        #navbar {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        #navbar li {
+            display: inline-block;
+        }
+
+        #navbar a {
+            text-decoration: none;
+            color: #4C9AEF;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        #navbar a:hover, 
+        #navbar a.active {
+            color: #256fdd;
+            border-bottom: 2px solid #4C9AEF;
+            padding-bottom: 4px;
+        }
+
+        /* ===== CONTAINER CENTRALIZADO ===== */
+        .cadastro-container {
+            max-width: 600px;
+            background: #fff;
+            margin: 60px auto;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            text-align: left;
+        }
+
+        .cadastro-container h2 {
+            text-align: center;
+            color: #4C9AEF;
+            margin-bottom: 25px;
+        }
+
+        label {
+            font-weight: bold;
+            color: #555;
+            display: block;
+            margin-top: 15px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            margin-top: 5px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4C9AEF;
+            color: #fff;
+            border: none;
+            padding: 12px;
+            width: 100%;
+            font-size: 16px;
+            border-radius: 6px;
+            margin-top: 25px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #3a8ae1;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #777;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== MENU SUPERIOR ===== -->
+    <section id="header">
+        <a href="pagprincipal.html"><img src="src/logodoefacil.png" class="logo" alt="Doe Fácil"></a>
+        <ul id="navbar">
+            <li><a  href="pagprincipal.html">Início</a></li> 
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="cadastro.html">Cadastro</a></li>
+               <li><a href="doar_receber.html">Apoiar/Receber</a></li>              
+                <li><a href="transparência.html">Transparência</a></li>
+                <li><a href="contato.html">contato</a></li>
+                <li><a href="login.html">login</a></li>  
+        </ul>
+    </section>
+
+  <!-- ===== FORMULÁRIO DE CADASTRO COMPLETO ===== -->
+<section id="cadastro">
+  <div class="cadastro-container">
+    <h2>Crie sua Conta</h2>
+
+
+
+      <!-- Tipo de Cadastro -->
+      <fieldset>
+        <legend>Tipo de Cadastro</legend>
+        <label>
+          <input type="radio" name="tipo" value="pf" id="tipo-pf" checked>
+          Pessoa Física
+        </label>
+        <label>
+          <input type="radio" name="tipo" value="pj" id="tipo-pj">
+          Pessoa Jurídica
+        </label>
+      </fieldset>
+
+      <!-- Nome Completo ou Razão Social -->
+      <label for="nome">Nome Completo / Razão Social:</label>
+      <input type="text" id="nome" name="nome" required placeholder="Digite seu nome completo ou razão social">
+
+      <!-- CPF ou CNPJ -->
+      <div id="documento-container">
+        <label for="documento">CPF:</label>
+        <input type="text" id="documento" name="documento" placeholder="000.000.000-00" required>
+      </div>
+
+      <!-- Gênero -->
+      <label for="genero">Gênero:</label>
+      <select id="genero" name="genero" required>
+        <option value="">Selecione</option>
+        <option value="feminino">Feminino</option>
+        <option value="masculino">Masculino</option>
+        <option value="outro">Outro</option>
+        <option value="prefiro_nao_informar">Prefiro não informar</option>
+      </select>
+
+      <!-- Data de Nascimento -->
+      <label for="nascimento">Data de Nascimento:</label>
+      <input type="date" id="nascimento" name="nascimento" required>
+
+      <!-- E-mail -->
+      <label for="email">E-mail:</label>
+      <input type="email" id="email" name="email" required placeholder="seuemail@exemplo.com">
+
+      <!-- Telefone -->
+      <label for="telefone">Telefone:</label>
+      <input type="tel" id="telefone" name="telefone" placeholder="(00) 90000-0000" required>
+
+      <!-- Endereço -->
+      <label for="endereco">Endereço Completo:</label>
+      <input type="text" id="endereco" name="endereco" placeholder="Rua, número, bairro, cidade, estado" required>
+
+      <!-- CEP -->
+      <label for="cep">CEP:</label>
+      <input type="text" id="cep" name="cep" placeholder="00000-000" required>
+
+      <!-- Senha -->
+      <label for="senha">Crie uma Senha:</label>
+      <input type="password" id="senha" name="senha" required minlength="6" placeholder="Mínimo 6 caracteres">
+
+      <!-- Confirmar Senha -->
+      <label for="confirmar_senha">Confirme a Senha:</label>
+      <input type="password" id="confirmar_senha" name="confirmar_senha" required minlength="6">
+
+      <!-- Termos -->
+      <label>
+        <input type="checkbox" name="termos" required>
+        Li e aceito os <a href="termos.html" target="_blank">termos de uso</a> e a <a href="politica_privacidade.html" target="_blank">política de privacidade</a>.
+      </label>
+
+      <!-- Botão -->
+      <button type="submit">Finalizar Cadastro</button>
+    </form>
+  </div>
+</section>
+
+<!-- ===== SCRIPT OPCIONAL: alternar CPF/CNPJ automaticamente ===== -->
+<script>
+  const tipoPF = document.getElementById('tipo-pf');
+  const tipoPJ = document.getElementById('tipo-pj');
+  const labelDoc = document.querySelector('label[for="documento"]');
+  const inputDoc = document.getElementById('documento');
+
+  tipoPF.addEventListener('change', () => {
+    labelDoc.textContent = 'CPF:';
+    inputDoc.placeholder = '000.000.000-00';
+  });
+
+  tipoPJ.addEventListener('change', () => {
+    labelDoc.textContent = 'CNPJ:';
+    inputDoc.placeholder = '00.000.000/0000-00';
+  });
+</script>
+
+    <footer>
+        <p>© 2025 Doe Fácil - Todos os direitos reservados.</p>
+    </footer>
+
+</body>
+</html>

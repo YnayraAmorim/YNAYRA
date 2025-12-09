@@ -1,0 +1,162 @@
+/* Estilo geral */
+body {
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(135deg, #f8f9fb, #e9eff7);
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+/* Container principal */
+.sobre-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 50px 20px;
+}
+
+/* Caixa de conteúdo */
+.sobre-content {
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  max-width: 900px;
+  padding: 60px;
+  text-align: justify;
+  transition: transform 0.3s ease;
+}
+
+.sobre-content:hover {
+  transform: scale(1.01);
+}
+
+/* Título */
+.sobre-content h1 {
+  text-align: center;
+  color: #0077cc;
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.sobre-content h1::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 4px;
+  background-color: #0077cc;
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+/* Parágrafos */
+.sobre-content p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 20px;
+  color: #444;
+}
+
+/* Destaques */
+.sobre-content strong {
+  color: #0077cc;
+}
+
+/* Slogan */
+.sobre-content .slogan {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #005fa3;
+  text-align: center;
+  margin-top: 30px;
+}
+
+/* Convite final */
+.sobre-content .convite {
+  text-align: center;
+  font-style: italic;
+  color: #0077cc;
+  font-size: 1.1rem;
+  margin-top: 15px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .sobre-content {
+    padding: 40px 25px;
+  }
+
+  .sobre-content h1 {
+    font-size: 2rem;
+  }
+
+  .sobre-content p {
+    font-size: 1rem;
+  }
+}
+/* -------- MISSÃO, VISÃO E VALORES -------- */
+
+.mvv-container {
+    width: 100%;
+    padding: 40px 5%;
+    background: #f7f9fc;
+    text-align: center;
+}
+
+.mvv-container h2 {
+    font-size: 2.5rem;
+    color: #0d3b66;
+    margin-bottom: 30px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.mvv-boxes {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.mvv-card {
+    background: white;
+    padding: 25px;
+    width: 300px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: 0.3s ease;
+    border-top: 4px solid #0d6efd;
+}
+
+.mvv-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+.mvv-card h3 {
+    font-size: 1.6rem;
+    color: #0d6efd;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.mvv-card p,
+.mvv-card ul li {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #333;
+}
+
+.mvv-card ul {
+    list-style: none;
+    padding: 0;
+}
+
+.mvv-card ul li::before {
+    content: "✔ ";
+    color: #0d6efd;
+    font-weight: bold;
+}

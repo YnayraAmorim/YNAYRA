@@ -1,0 +1,163 @@
+/* ====== ESTILO GERAL ====== */
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #fff;
+  margin: 0;
+  padding: 0;
+}
+
+/* ====== HEADER ====== */
+#header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 50px;
+  background-color: #fff;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+#navbar {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+}
+
+#navbar a {
+  text-decoration: none;
+  color: #222;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+#navbar a:hover {
+  color: #007bff;
+}
+
+/* ====== CARROSSEL ====== */
+.carousel-inner img {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+}
+
+/* ====== SEÇÕES ====== */
+.section-p1 {
+  padding: 60px 80px;
+  text-align: center;
+}
+
+h2 {
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* ====== PRODUTOS ====== */
+.pro-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+}
+
+.pro {
+  background: #fafafa;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s;
+}
+
+.pro:hover {
+  transform: translateY(-5px);
+}
+
+.pro img {
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+}
+
+.des {
+  padding: 15px;
+}
+
+.des h5 {
+  font-size: 1rem;
+  color: #333;
+}
+
+.star {
+  color: #ffb400;
+  margin: 5px 0;
+}
+
+/* ====== BANNERS ====== */
+.banner-container {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 40px;
+}
+
+.banner-box {
+  flex: 1 1 300px;
+  max-width: 400px;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.banner-box img,
+.banner-box video {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+
+/* ====== NEWSLETTER ====== */
+#newsletter {
+  background-color: #f5f5f5;
+  text-align: center;
+  padding: 50px 20px;
+}
+
+#newsletter input {
+  padding: 12px;
+  width: 300px;
+  border: none;
+  border-radius: 5px;
+}
+
+#newsletter button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#newsletter button:hover {
+  background-color: #0056b3;
+}
+
+/* ====== FOOTER ====== */
+footer {
+  background-color: #222;
+  color: #fff;
+  padding: 40px;
+  text-align: left;
+}
+
+footer .logo {
+  width: 150px;
+}
+
+footer a {
+  color: #00bfff;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
